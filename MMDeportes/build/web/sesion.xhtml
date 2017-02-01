@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./Plantillas_Web/defaultTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid columns="2" styleClass="panelBorder">
+                        <h:graphicImage library="images" name="send_user.png" width="156px" height="156px"/>                        
+                        <h:panelGrid columns="1" >
+                            <h1>Iniciar Sesión</h1>
+                            <h:outputLabel for="user" value="Usuario" />
+                            <h:inputText id="user" value="#{IdentificarUsuario.usuario}" required="true" label="Usuario" size="30" style="font: bold 15px 'Josefin Sans', sans-serif;"/>
+                            <h:message for="user" errorClass="texto_error"/>
+                            <h:outputLabel for="pass" value="Contraseña" />
+                            <h:inputSecret id="pass" value="#{IdentificarUsuario.password}" required="true" label="Contraseña" size="30" style="font: bold 15px 'Josefin Sans', sans-serif;"/>
+                            <h:message for="pass" errorClass="texto_error"/>
+                            <h:commandButton value="Iniciar Sesión" action="#{IdentificarUsuario.login()}" styleClass="botonSubmit"/>
+                            <h:commandLink value="Olvidaste tu contraseña" action="#"/>
+                        </h:panelGrid>                      
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
